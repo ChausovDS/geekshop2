@@ -1,0 +1,21 @@
+{% extends 'authnapp/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
+    {% csrf_token %}
+    {% if next_page %}
+        <input type="hidden" name="next_page" value="{{ next_page }}">
+    {% endif %}
+    {{ login_form.as_p }}
+    <br>
+    <input class="form-control" type="submit" value="войти">
+</form>
+<button class="btn btn-round form-control">
+    <a href="{% url 'auth:register' %}" class="">
+        зарегистрироваться
+    </a>
+</button>
+
+{% endblock content %}
