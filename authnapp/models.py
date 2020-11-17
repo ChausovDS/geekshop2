@@ -47,5 +47,6 @@ class ShopUserProfile(models.Model):
 
     @receiver(post_save, sender=ShopUser)
     def save_user_profile(sender, instance, **kwargs):
+
         instance.shopuserprofile.save()
 

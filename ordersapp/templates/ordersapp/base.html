@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+        {{ "Кабинет заказов"|title }}
+        {% endblock %}
+    </title>
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}">
+    {% endblock css %}
+
+</head>
+
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+{% block js %}
+<!-- Bootstrap section -->
+<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script>
+    // Enable tooltips everywhere
+    //   https://getbootstrap.com/docs/4.4/components/tooltips/#example-enable-tooltips-everywhere
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+<!-- GeekShop section -->
+<script src="{% static 'js/orders_scripts.js' %}"></script>
+{% endblock js %}
+
+</html>
